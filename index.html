@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Singh — Developer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="grid-overlay"></div>
+<div class="scanlines"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SS</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge">Available for hire</div>
+  <h1 class="hero-name">
+    <span class="first">Sandeep</span>
+    <span class="last">Singh</span>
+  </h1>
+  <p class="hero-title">Full-Stack <span>Web Developer</span></p>
+  <p class="hero-desc">Building immersive digital experiences with clean code and creative vision. Front-end to back-end, pixel to server.</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn-primary">View Work</a>
+    <a href="#contact" class="btn-secondary">Contact Me</a>
+  </div>
+  <div class="hero-3d">
+    <div class="cube">
+      <div class="cube-face face-front">HTML</div>
+      <div class="cube-face face-back">PHP</div>
+      <div class="cube-face face-right">JS</div>
+      <div class="cube-face face-left">CSS</div>
+      <div class="cube-face face-top">WEB</div>
+      <div class="cube-face face-bottom">DEV</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-content">
+    <div class="about-avatar reveal">
+      <div class="avatar-ring">
+        <div class="avatar-dot"></div>
+      </div>
+      <div class="avatar-initials">SS</div>
+    </div>
+    <div class="about-text reveal">
+      <p class="section-label">// who am i</p>
+      <h2 class="section-title">About <span>Me</span></h2>
+      <p class="about-para">
+        I'm <strong class="text-bright">Sandeep Singh</strong>, a passionate full-stack web developer with a love for crafting responsive, dynamic web applications. I specialise in combining elegant front-end design with powerful back-end logic.
+      </p>
+      <p class="about-para">
+        From structuring content with <strong class="text-accent">HTML</strong>, styling with <strong class="text-accent">CSS</strong>, adding interactivity via <strong class="text-accent">JavaScript</strong>, to building server-side logic with <strong class="text-accent">PHP</strong> — I handle the complete web stack.
+      </p>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Technologies</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Curiosity</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Dedication</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="reveal section-header">
+    <p class="section-label">// my arsenal</p>
+    <h2 class="section-title">Tech <span>Skills</span></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-corner"></div>
+      <span class="skill-percent">90</span>
+      <span class="skill-icon">🌐</span>
+      <div class="skill-name">HTML5</div>
+      <div class="skill-desc">Semantic markup, accessibility, SEO-friendly structures, and modern HTML5 APIs.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar html-bar"></div></div>
+    </div>
+    <div class="skill-card reveal delay-1">
+      <div class="skill-corner"></div>
+      <span class="skill-percent">85</span>
+      <span class="skill-icon">🎨</span>
+      <div class="skill-name">CSS3</div>
+      <div class="skill-desc">Animations, Flexbox, Grid, responsive design, custom properties, and 3D transforms.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar css-bar"></div></div>
+    </div>
+    <div class="skill-card reveal delay-2">
+      <div class="skill-corner"></div>
+      <span class="skill-percent">80</span>
+      <span class="skill-icon">⚡</span>
+      <div class="skill-name">JavaScript</div>
+      <div class="skill-desc">ES6+, DOM manipulation, async programming, APIs, and interactive web logic.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar js-bar"></div></div>
+    </div>
+    <div class="skill-card reveal delay-3">
+      <div class="skill-corner"></div>
+      <span class="skill-percent">75</span>
+      <span class="skill-icon">🐘</span>
+      <div class="skill-name">PHP</div>
+      <div class="skill-desc">Server-side scripting, form handling, database integration, and dynamic content generation.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar php-bar"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal section-header">
+    <p class="section-label">// my work</p>
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-img proj-blue">
+        <div class="project-img-grid"></div>
+        🛒
+      </div>
+      <div class="project-info">
+        <span class="project-tag tag-cyan">E-Commerce</span>
+        <div class="project-title">ShopZone Web App</div>
+        <div class="project-desc">A fully functional online store with cart, user auth, and admin dashboard built from scratch.</div>
+        <div class="project-techs">
+          <span class="tech-chip">HTML</span><span class="tech-chip">CSS</span>
+          <span class="tech-chip">PHP</span><span class="tech-chip">MySQL</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal delay-1">
+      <div class="project-img proj-purple">
+        <div class="project-img-grid"></div>
+        📋
+      </div>
+      <div class="project-info">
+        <span class="project-tag tag-purple">Task Manager</span>
+        <div class="project-title">ProTask Dashboard</div>
+        <div class="project-desc">A real-time task management app with drag-and-drop, priority filters, and local storage sync.</div>
+        <div class="project-techs">
+          <span class="tech-chip">HTML</span><span class="tech-chip">CSS</span>
+          <span class="tech-chip">JavaScript</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal delay-2">
+      <div class="project-img proj-amber">
+        <div class="project-img-grid"></div>
+        🌐
+      </div>
+      <div class="project-info">
+        <span class="project-tag tag-amber">Portfolio</span>
+        <div class="project-title">Agency Landing Page</div>
+        <div class="project-desc">A high-converting agency website with animations, contact form, and full PHP back-end processing.</div>
+        <div class="project-techs">
+          <span class="tech-chip">HTML</span><span class="tech-chip">CSS</span>
+          <span class="tech-chip">JS</span><span class="tech-chip">PHP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal section-header">
+    <p class="section-label">// get in touch</p>
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+    <p class="contact-subtext">Have a project in mind or want to collaborate? Drop a message below.</p>
+  </div>
+
+  <div class="contact-wrapper reveal">
+
+    <!-- Left Info Panel -->
+    <div class="contact-info-panel">
+      <div class="info-block">
+        <div class="info-icon">📧</div>
+        <div>
+          <div class="info-label">Email</div>
+          <div class="info-value">sandeepsingh@email.com</div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Location</div>
+          <div class="info-value">India</div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">💼</div>
+        <div>
+          <div class="info-label">Available For</div>
+          <div class="info-value">Freelance &amp; Full-time</div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">⚡</div>
+        <div>
+          <div class="info-label">Response Time</div>
+          <div class="info-value">Within 24 Hours</div>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-btn">GitHub</a>
+        <a href="#" class="social-btn">LinkedIn</a>
+        <a href="#" class="social-btn">Twitter</a>
+      </div>
+    </div>
+
+    <!-- Right Contact Form -->
+    <div class="contact-form-panel">
+      <div class="form-top-bar"></div>
+
+      <!-- Success Message (hidden by default) -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <div class="success-title">Message Sent!</div>
+        <div class="success-text">Thanks for reaching out, Sandeep will get back to you within 24 hours.</div>
+        <button class="btn-primary" id="sendAnotherBtn">Send Another</button>
+      </div>
+
+      <!-- The Form -->
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="fname">First Name <span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="fname" name="fname" class="form-input" placeholder="Ravi" autocomplete="off">
+              <div class="input-border"></div>
+            </div>
+            <span class="form-error" id="fnameError">Please enter your first name.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lname">Last Name</label>
+            <div class="input-wrap">
+              <input type="text" id="lname" name="lname" class="form-input" placeholder="Kumar" autocomplete="off">
+              <div class="input-border"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+          <div class="input-wrap">
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" autocomplete="off">
+            <div class="input-border"></div>
+          </div>
+          <span class="form-error" id="emailError">Please enter a valid email address.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject <span class="required">*</span></label>
+          <div class="input-wrap select-wrap">
+            <select id="subject" name="subject" class="form-input form-select">
+              <option value="" disabled selected>Select a subject…</option>
+              <option value="freelance">Freelance Project</option>
+              <option value="fulltime">Full-time Opportunity</option>
+              <option value="collab">Collaboration</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="input-border"></div>
+            <span class="select-arrow">▾</span>
+          </div>
+          <span class="form-error" id="subjectError">Please select a subject.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message <span class="required">*</span></label>
+          <div class="input-wrap">
+            <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell me about your project or idea…" rows="5"></textarea>
+            <div class="input-border"></div>
+          </div>
+          <div class="char-counter"><span id="charCount">0</span> / 500</div>
+          <span class="form-error" id="messageError">Message must be at least 20 characters.</span>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-text">Send Message</span>
+          <span class="btn-loader" id="btnLoader">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>Designed &amp; Built by <span>Sandeep Singh</span> · 2024 · All Rights Reserved</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
