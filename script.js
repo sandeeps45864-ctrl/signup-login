@@ -1,12 +1,14 @@
-document.querySelector('.signup-btn').addEventListener('click', async (e) => {
+console.log("JS Loaded");
+
+document.querySelector('#contactForm').addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
-    const name = document.querySelector('#name').value;
+    console.log("Button Clicked");
+
+    const name = document.querySelector('#fname').value;
     const email = document.querySelector('#email').value;
     const message = document.querySelector('#message').value;
-
-    console.log("Button Clicked");
 
     try {
 
