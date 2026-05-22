@@ -9,29 +9,37 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Static files serve
+// Static files
 app.use(express.static(__dirname));
 
-// Route for homepage
+// Homepage
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Contact form route
+// Contact Route
 app.post("/send", async (req, res) => {
+
     const { name, email, message } = req.body;
 
     try {
+
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
         });
 
+        await transporter.verify();
+        console.log("Email server ready");
+
         const mailOptions = {
-            from: email,
+            from: process.env.EMAIL_USER,
+            replyTo: email,
             to: process.env.EMAIL_USER,
             subject: `Portfolio Contact from ${name}`,
             text: `
@@ -43,9 +51,14 @@ Message: ${message}
 
         await transporter.sendMail(mailOptions);
 
+        console.log("Email Sent Successfully");
+
         res.send("Message sent successfully!");
+
     } catch (error) {
+
         console.log(error);
+
         res.status(500).send("Error sending message");
     }
 });
