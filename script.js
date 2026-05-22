@@ -1,32 +1,43 @@
-document.querySelector('.btn-submit').addEventListener('click', async (e) => {
+document.querySelector('.signup-btn').addEventListener('click', async (e) => {
 
-  e.preventDefault();
+    e.preventDefault();
 
-  const name = document.querySelector('#fname').value;
-  const email = document.querySelector('#email').value;
-  const message = document.querySelector('#message').value;
+    const name = document.querySelector('#name').value;
+    const email = document.querySelector('#email').value;
+    const message = document.querySelector('#message').value;
 
-  try {
+    console.log("Button Clicked");
 
-    const response = await fetch("https://netlify-website-74pi.onrender.com/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-      }),
-    });
+    try {
 
-    const data = await response.text();
+        const response = await fetch("https://netlify-website-74pi.onrender.com/send", {
 
-    alert(data);
+            method: "POST",
 
-  } catch (error) {
-    console.log(error);
-    alert("Error sending message");
-  }
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+                name,
+                email,
+                message
+            })
+
+        });
+
+        const data = await response.text();
+
+        console.log(data);
+
+        alert(data);
+
+    } catch (error) {
+
+        console.log("FRONTEND ERROR:", error);
+
+        alert("Error sending message");
+
+    }
 
 });
