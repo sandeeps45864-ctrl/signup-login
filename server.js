@@ -9,63 +9,71 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Static files
+// Static Files
 app.use(express.static(__dirname));
 
-// Homepage
+// Home Route
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Contact Route
+// Contact Form Route
 app.post("/send", async (req, res) => {
 
-    const { name, email, message } = req.body;
+  const { name, email, message } = req.body;
 
-    try {
+  try {
 
-        const transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-        });
+    // Gmail Transporter
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
-        await transporter.verify();
-        console.log("Email server ready");
+    // Check SMTP
+    await transporter.verify();
+    console.log("Email server ready");
 
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            replyTo: email,
-            to: process.env.EMAIL_USER,
-            subject: `Portfolio Contact from ${name}`,
-            text: `
+    // Mail Options
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      replyTo: email,
+      to: process.env.EMAIL_USER,
+      subject: `Portfolio Contact from ${name}`,
+      text: `
 Name: ${name}
 Email: ${email}
-Message: ${message}
-            `,
-        };
 
-        await transporter.sendMail(mailOptions);
+Message:
+${message}
+      `,
+    };
 
-        console.log("Email Sent Successfully");
+    // Send Mail
+    await transporter.sendMail(mailOptions);
 
-        res.send("Message sent successfully!");
+    console.log("Email Sent Successfully");
 
-    } catch (error) {
+    res.status(200).send("Message sent successfully!");
 
-        console.log(error);
+  } catch (error) {
 
-        res.status(500).send("Error sending message");
-    }
+    console.log("EMAIL ERROR:", error);
+
+    res.status(500).send("Error sending message");
+
+  }
+
 });
 
-// Port
+// PORT
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
