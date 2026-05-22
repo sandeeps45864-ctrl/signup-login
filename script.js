@@ -1,6 +1,8 @@
-document.querySelector('.signup-btn').addEventListener('click', async () => {
+document.querySelector('.btn-submit').addEventListener('click', async (e) => {
 
-  const name = document.querySelector('#name').value;
+  e.preventDefault();
+
+  const name = document.querySelector('#fname').value;
   const email = document.querySelector('#email').value;
   const message = document.querySelector('#message').value;
 
