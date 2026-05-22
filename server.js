@@ -1,42 +1,58 @@
 const express = require("express");
-const dotenv = require("dotenv");
+const path = require("path");
 const nodemailer = require("nodemailer");
-
-dotenv.config();
+require("dotenv").config();
 
 const app = express();
 
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/send", async (req, res) => {
-  try {
-    const { name, email, message } = req.body;
+// Static files serve
+app.use(express.static(__dirname));
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: email,
-      to: process.env.EMAIL_USER,
-      subject: `Portfolio Message from ${name}`,
-      text: message,
-    });
-
-    res.status(200).send("Message Sent Successfully");
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("Error sending message");
-  }
+// Route for homepage
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
-const PORT = 5000;
+// Contact form route
+app.post("/send", async (req, res) => {
+    const { name, email, message } = req.body;
+
+    try {
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
+
+        const mailOptions = {
+            from: email,
+            to: process.env.EMAIL_USER,
+            subject: `Portfolio Contact from ${name}`,
+            text: `
+Name: ${name}
+Email: ${email}
+Message: ${message}
+            `,
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        res.send("Message sent successfully!");
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Error sending message");
+    }
+});
+
+// Port
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
